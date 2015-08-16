@@ -13,7 +13,7 @@ module.exports = {
             // replace ../../../index.js with ngtemplate
             {
               test: /\.html$/,
-              loader: "../../index.js?prefix=public/templates"
+              loader: "../../index.js"
             }
         ]
     },

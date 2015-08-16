@@ -14,13 +14,16 @@ module.exports = function (source) {
       module = query.module ? query.module : 'ng',
       resource = this.resource.split(path.sep),
       fileName = resource.pop(),
-      projectResourcePath;
+      projectResourcePath = loaderContext.resource.replace(loaderContext.context, '');
 
   if (query.prefix) {
     projectResourcePath = path.join(query.prefix, '/', fileName);
   } else {
-    projectResourcePath = loaderContext.resource.replace(__dirname, '');
+    projectResourcePath = loaderContext.resource.replace(loaderContext.context, '');
   }
+  console.log('resourcePath', this.context);
+  console.log('path', projectResourcePath);
+  console.log('dirname', __filename);
 
   loaderContext.cacheable && loaderContext.cacheable();
 
