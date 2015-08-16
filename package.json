@@ -1,0 +1,17 @@
+{
+  "name": "angular-templatecache-loader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^1.1.0",
+    "html-minifier": "^0.7.2",
+    "loader-utils": "^0.2.11",
+    "webpack": "^1.11.0"
+  }
+}
