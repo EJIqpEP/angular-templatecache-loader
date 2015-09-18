@@ -17,3 +17,20 @@ index.html
 ```javascript
 <div ng-include="'src/myTemplate.html'"></div>
 ```
+
+## Options
+1. module - name of angular module (default is ng)
+```javascript
+  {
+    test: /\.html$/,
+    loader: "angular-templatecache-loader?module=app"
+  }
+```
+
+2. prefix - add prefix all file names
+```javascript
+  {
+    test: /\.html$/,
+    loader: "angular-templatecache-loader?prefix=/public/src"
+  }
+```
