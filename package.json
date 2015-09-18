@@ -1,17 +1,40 @@
 {
   "name": "angular-templatecache-loader",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Webpack angular templateCache loader",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests/index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "angular",
+    "template",
+    "cache",
+    "webpack",
+    "loader"
+  ],
+  "author": {
+    "name": "Alexander Kochergin",
+    "email": "ejiqpep@gmail.com",
+    "url": "https://github.com/EJIqpEP"
+  },
+  "license": "MIT",
   "devDependencies": {
-    "eslint": "^1.1.0",
-    "html-minifier": "^0.7.2",
-    "loader-utils": "^0.2.11",
+    "chai": "^3.2.0",
     "webpack": "^1.11.0"
-  }
+  },
+  "dependencies": {
+    "angular": "^1.5.0-beta.0",
+    "html-minifier": "^0.7.2",
+    "jsesc": "^0.5.0",
+    "loader-utils": "^0.2.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EJIqpEP/angular-templatecache-webpack-loader"
+  },
+  "bugs": {
+    "url": "https://github.com/EJIqpEP/angular-templatecache-webpack-loader/issues"
+  },
+  "homepage": "https://github.com/EJIqpEP/angular-templatecache-webpack-loader"
 }

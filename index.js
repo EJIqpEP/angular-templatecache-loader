@@ -1,53 +1,60 @@
 var loaderUtils = require('loader-utils');
-var htmlMinifier = require("html-minifier");
+var htmlMinifier = require('html-minifier');
 var path = require('path');
-
-var stub = 'var v$i=$val;\n' +
-    'window.angular.module(["ng"])' +
-    '.run(["$templateCache",function(c){' +
-    'c.put("$key", v$i)' +
-    '}]);';
+var jsesc = require('jsesc');
 
 module.exports = function (source) {
-  var loaderContext = this,
-      query = loaderUtils.parseQuery(loaderContext.query),
-      module = query.module ? query.module : 'ng',
-      resource = this.resource.split(path.sep),
-      fileName = resource.pop(),
-      projectResourcePath = loaderContext.resource.replace(loaderContext.context, '');
-
-  if (query.prefix) {
-    projectResourcePath = path.join(query.prefix, '/', fileName);
-  } else {
-    projectResourcePath = loaderContext.resource.replace(loaderContext.context, '');
+  console.log('this.resource', this.resource);
+  if (this.resource === undefined) {
+    throw new Error('resource is not provided');
   }
-  console.log('resourcePath', this.context);
-  console.log('path', projectResourcePath);
-  console.log('dirname', __filename);
 
-  loaderContext.cacheable && loaderContext.cacheable();
+  var separator = '/';
+  var query = loaderUtils.parseQuery(this.query);
+  var resourcePath;
+  var root = process.cwd();
+  var outputPath;
+  var outputSource = '';
 
-  source = htmlMinifier.minify(source, {
-      removeComments: true,
-      removeCommentsFromCDATA: true,
-      collapseWhitespace: true,
-      conservativeCollapse: true,
-      preserveLineBreaks: true,
-      removeEmptyAttributes: true,
-      keepClosingSlash: true
-  });
+  var prefix = query.prefix || '';
+  var module = query.module ? query.module : 'ng';
+
+  // Change separators to unix style
+  prefix = prefix.replace(/\\/g, separator);
+  resourcePath = this.resource.replace(/\\/g, separator);
+  root = root.replace(/\\/g, separator);
+
+  if (prefix) {
+    outputPath = prefix + resourcePath.replace(root, '');
+  } else {
+    outputPath = resourcePath.replace(root, '').slice(1);
+  }
+
+  this.cacheable && this.cacheable();
+
+  if (source) {
+    outputSource = htmlMinifier.minify(source, {
+        removeComments: true,
+        removeCommentsFromCDATA: true,
+        removeCDATASectionsFromCDATA: true,
+        collapseWhitespace: true,
+        collapseBooleanAttributes: true,
+        removeAttributeQuotes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeOptionalTags: true,
+        minifyJS: true,
+        minifyCSS: true
+    });
+
+  }
+
+    var escapedOutput = jsesc(outputSource);
 
 
-
-  // stub.replace(/\$([\w\d_\-]+)/g, function (match, name) {
-  //   console.log('mmm', match, name);
-  //   return
-  // });
-  // this.cacheable();
-  var lol = 'lol';
-  return "var v1='" + source + "';\n" +
+  return "var v1='" + escapedOutput + "';\n" +
     "angular.module('" + module + "').run(['$templateCache', function ($templateCache) {" +
-    "$templateCache.put('" + projectResourcePath + "', 'home!!!!');"+
+    "$templateCache.put('" + outputPath + "', '" + escapedOutput + "');"+
   "}]);\n" +
   "module.exports=v1";
 }

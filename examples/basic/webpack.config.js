@@ -6,11 +6,7 @@ module.exports = {
         test: path.join(__dirname, "index.js")
     },
     module: {
-        // preLoaders: [
-        //     { test: /\.js$/, loader: 'baggage?[file].html' }
-        // ],
         loaders: [
-            // replace ../../../index.js with ngtemplate
             {
               test: /\.html$/,
               loader: "../../index.js"

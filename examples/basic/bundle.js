@@ -58,8 +58,8 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var v1='<div>This is myTemplate</div> <div>And I like it</div>';
-	angular.module('ng').run(['$templateCache', function ($templateCache) {$templateCache.put('/myTemplate.html', 'home!!!!');}]);
+	var v1='<div>This is myTemplate</div><div>And I like it</div>';
+	angular.module('ng').run(['$templateCache', function ($templateCache) {$templateCache.put('myTemplate.html', '<div>This is myTemplate</div><div>And I like it</div>');}]);
 	module.exports=v1
 
 /***/ }
