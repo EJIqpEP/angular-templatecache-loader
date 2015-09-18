@@ -27,7 +27,7 @@ index.html
   }
 ```
 
-2. prefix - add prefix all file names
+2. prefix - add prefix to all file names
 ```javascript
   {
     test: /\.html$/,
