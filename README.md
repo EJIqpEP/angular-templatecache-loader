@@ -2,9 +2,16 @@
 
 Puts HTML files to Angular $templateCache.
 
+
 ## Features
 1. You can use ng-include directives with require syntax
 2. You will always have the content of the file in assigned variable
+
+## Install
+
+You can install loader using npm:
+```shell
+npm i angular-templatecache-loader
 
 ## Examples
 
