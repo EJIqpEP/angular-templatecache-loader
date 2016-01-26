@@ -12,6 +12,7 @@ Puts HTML files to Angular $templateCache.
 You can install loader using npm:
 ```shell
 npm i angular-templatecache-loader
+```
 
 ## Examples
 
