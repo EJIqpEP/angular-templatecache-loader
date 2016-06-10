@@ -54,7 +54,7 @@ module.exports = function (source) {
 
   return "var v1='" + escapedOutput + "';\n" +
     "angular.module('" + module + "').run(['$templateCache', function ($templateCache) {" +
-    "$templateCache.put('" + outputPath + "', '" + escapedOutput + "');"+
+    "$templateCache.put('" + outputPath + "', v1);"+
   "}]);\n" +
   "module.exports=v1";
 }
