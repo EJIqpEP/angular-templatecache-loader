@@ -4,7 +4,7 @@ var path = require('path');
 var jsesc = require('jsesc');
 
 module.exports = function (source) {
-  console.log('this.resource', this.resource);
+
   if (this.resource === undefined) {
     throw new Error('resource is not provided');
   }

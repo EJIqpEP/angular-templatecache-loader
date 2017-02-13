@@ -21,7 +21,7 @@ var generateExports = function (html, filePath, module) {
     var moduleName = module || 'ng';
     return 'var v1=\'' + html + '\';' +
         '\nangular.module(\'' + moduleName + '\').run([\'$templateCache\', function ($templateCache) {' +
-        '$templateCache.put(\'' + filePath + '\', \'' + html + '\');}]);' +
+        '$templateCache.put(\'' + filePath + '\', v1);}]);' +
         '\nmodule.exports=v1';
 };
 
