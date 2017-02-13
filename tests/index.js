@@ -8,7 +8,7 @@ var lib = require(path.join(cwd, libPath));
 var run = function (resource, prefix, options) {
     var params = {
         resource: resource,
-        options: context
+        options: options
     };
 
     if (prefix !== undefined) {
