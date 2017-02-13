@@ -1,6 +1,6 @@
 {
   "name": "angular-templatecache-loader",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Webpack angular templateCache loader",
   "main": "index.js",
   "scripts": {
