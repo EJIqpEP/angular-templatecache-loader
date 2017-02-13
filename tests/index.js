@@ -5,9 +5,10 @@ var should = require('chai').should();
 var libPath = 'index.js';
 var lib = require(path.join(cwd, libPath));
 
-var run = function (resource, prefix) {
+var run = function (resource, prefix, options) {
     var params = {
-        resource: resource
+        resource: resource,
+        options: context
     };
 
     if (prefix !== undefined) {
@@ -80,4 +81,16 @@ describe('angular-templacache-loader', function () {
         expect(result).to.equal(generateExports(mockHtml, filePath));
     });
 
+    it('should get root from webpack config', function () {
+        var mockHtml = '<div>lol</div>';
+        var filePath = 'views/simple.html';
+        var result = lib.call({
+            resource: cwd + '\\app\\views\\simple.html',
+            options: {
+                context: path.join(__dirname, '../app')
+            }
+        }, mockHtml);
+
+        expect(result).to.equal(generateExports(mockHtml, filePath));
+    });
 });

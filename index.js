@@ -4,7 +4,6 @@ var path = require('path');
 var jsesc = require('jsesc');
 
 module.exports = function (source) {
-
   if (this.resource === undefined) {
     throw new Error('resource is not provided');
   }
@@ -12,7 +11,8 @@ module.exports = function (source) {
   var separator = '/';
   var query = loaderUtils.parseQuery(this.query);
   var resourcePath;
-  var root = process.cwd();
+  var context = this.options && this.options.context;
+  var root = context || process.cwd();
   var outputPath;
   var outputSource = '';
 
