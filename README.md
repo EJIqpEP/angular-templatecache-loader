@@ -27,7 +27,9 @@ index.html
 ```
 
 ## Options
+
 1. module - name of angular module (default is ng)
+
 ```javascript
   {
     test: /\.html$/,
@@ -36,6 +38,7 @@ index.html
 ```
 
 2. prefix - add prefix to all file names
+
 ```javascript
   {
     test: /\.html$/,
