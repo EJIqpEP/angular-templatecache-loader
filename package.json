@@ -1,6 +1,6 @@
 {
   "name": "angular-templatecache-loader",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Webpack angular templateCache loader",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.2.0",
+    "mocha": "3.2.0",
     "webpack": "^1.11.0"
   },
   "dependencies": {

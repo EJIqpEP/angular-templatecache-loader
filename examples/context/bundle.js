@@ -49,7 +49,7 @@
 
 	app.run(function ($templateCache) {
 	  console.log('tt', $templateCache.info());
-	})
+	});
 
 	console.log('a', a);
 
@@ -59,7 +59,7 @@
 /***/ function(module, exports) {
 
 	var v1='<div>This is myTemplate</div><div>And I like it</div>';
-	angular.module('ng').run(['$templateCache', function ($templateCache) {$templateCache.put('myTemplate.html', v1);}]);
+	angular.module('ng').run(['$templateCache', function ($templateCache) {$templateCache.put('views/myTemplate.html', v1);}]);
 	module.exports=v1
 
 /***/ }

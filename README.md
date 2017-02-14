@@ -27,7 +27,9 @@ index.html
 ```
 
 ## Options
+
 1. module - name of angular module (default is ng)
+
 ```javascript
   {
     test: /\.html$/,
@@ -36,9 +38,20 @@ index.html
 ```
 
 2. prefix - add prefix to all file names
+
 ```javascript
   {
     test: /\.html$/,
     loader: "angular-templatecache-loader?prefix=/public/src"
   }
+```
+
+3. You can also use context in webpack to pass correct template url. See [Context example](https://github.com/EJIqpEP/angular-templatecache-loader/tree/master/examples/context)
+
+```javascript
+var app = path.join(__dirname, 'app');
+
+module.exports = {
+  context: app
+}
 ```
